@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>        
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>HYM - Plataforma de conexión entre técnicos y clientes</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<header>
+    <h1>HYM</h1>
+
+    <nav>
+        <button onclick="showScreen('home')">Inicio</button>
+        <button onclick="showScreen('register')">Registrarse</button>
+        <button onclick="showScreen('login')">Iniciar sesión</button>
+    </nav>
+</header>
+
+ <div class="container">
+
+  <!-- HOME -->
+  <section id="home" class="screen active">
+   <div class="hero">
+     <div class="hero-text">
+       <h2>Conectamos clientes con técnicos de construcción</h2>
+       <p>
+        HYM es una plataforma web diseñada para facilitar la comunicación entre clientes y técnicos de construcción.
+        Permite solicitar servicios, generar cotizaciones, administrar pagos, manejar comisiones y fortalecer la confianza
+        mediante perfiles, reputación y seguimiento de cada proyecto.
+       </p>
+
+      <button class="btn" onclick="showScreen('register')">Registrarse</button>
+      <button class="btn secondary" onclick="showScreen('login')">Iniciar sesión</button>
+     </div>
+
+    <div class="hero-card">
+     <h3 style="margin-bottom: 10px;">¿Qué ofrece HYM?</h3>
+     <p>✔ Registro de clientes y técnicos</p>
+     <p>✔ Solicitud de servicios de construcción</p>
+     <p>✔ Cotización transparente del proyecto</p>
+     <p>✔ Comisión por intermediación</p>
+     <p>✔ Métodos de pago y comprobantes</p>
+     <p>✔ Sistema de reputación y confianza</p>
+     <p>✔ Comunicación directa entre las partes</p>
+    </div>
+   </div>
+
+   <h2 class="section-title" style="margin-top: 30px;">Servicios y funcionalidades principales</h2>
+   <div class="grid-3">
+    <div class="card">
+      <h3>Solicitudes de servicio</h3>
+      <p>El cliente publica una necesidad de obra, reparación, remodelación o mantenimiento y la plataforma organiza el proceso.</p>
+    </div>
+    <div class="card">
+      <h3>Cotización del proyecto</h3>
+      <p>Los técnicos pueden responder con una propuesta económica clara, mostrando el valor del servicio y la comisión de HYM.</p>
+    </div>
+    <div class="card">
+      <h3>Confianza y seguridad</h3>
+      <p>Perfiles, calificaciones, historial de servicios y seguimiento fortalecen la relación entre cliente y técnico.</p>
+    </div>
+   </div>
+  </section>
+
+  <!-- REGISTER -->
+  <section id="register" class="screen">
+   <h2 class="section-title">Registro de usuarios</h2>
+   <div class="grid-2">
+     <div class="card">
+       <h3>Crear cuenta en HYM</h3>
+       <form id="registerForm">
+        <div>
+         <label for="regName">Nombre completo</label>
+         <input type="text" id="regName" required />
+        </div>
+
+       <div>
+        <label for="regEmail">Correo electrónico</label>
+        <input type="email" id="regEmail" required />
+       </div>
+
+       <div>
+        <label for="regPhone">Teléfono</label>
+        <input type="text" id="regPhone" required />
+       </div>
+
+       <div>
+        <label for="regPassword">Contraseña</label>
+        <input type="password" id="regPassword" required />
+       </div>
+
+       <div>
+        <label for="regRole">Tipo de usuario</label>
+        <select id="regRole" onchange="toggleTechFields()" required>
+         <option value="">Seleccione</option>
+         <option value="cliente">Cliente</option>
+         <option value="tecnico">Técnico</option>
+         <option value="admin">Administrador</option>
+        </select>
+       </div>
+
+       <div id="techFields" class="hidden">
+        <div>
+         <label for="regSpecialty">Especialidad técnica</label>
+         <input type="text" id="regSpecialty" placeholder="Ej: Plomería, Electricidad, Obra gris" />
+        </div>
+        <div style="margin-top: 12px;">
+         <label for="regExperience">Años de experiencia</label>
+         <input type="number" id="regExperience" min="0" />
+        </div>
+       </div>
+
+       <button class="btn success" type="submit">Registrar usuario</button>
+      </form>
+      <p id="registerMsg" style="margin-top: 14px; font-weight: bold;"></p>
+     </div>
+
+    <div class="card">
+      <h3>Descripción</h3>
+      <p>Este formulario permite registrar usuarios dentro de la plataforma HYM. Dependiendo del rol seleccionado, se habilitan campos adicionales para los técnicos de construcción.</p>
+      <br />
+      <p><strong>Roles disponibles:</strong></p>
+      <p>- Cliente</p>
+      <p>- Técnico</p>
+      <p>- Administrador</p>
+    </div>
+   </div>
+  </section>
+
+  <!-- LOGIN -->
+  <section id="login" class="screen">
+   <h2 class="section-title">Inicio de sesión</h2>
+   <div class="grid-2">
+     <div class="card">
+       <h3>Ingresar al sistema</h3>
+       <form id="loginForm">
+        <div>
+          <label for="loginEmail">Correo</label>
+          <input type="email" id="loginEmail" required />
+        </div>
+        <div>
+          <label for="loginPassword">Contraseña</label>
+          <input type="password" id="loginPassword" required />
+        </div>
+        <button class="btn" type="submit">Ingresar</button>
+       </form>
+       <p id="loginMsg" style="margin-top: 14px; font-weight: bold;"></p>
+     </div>
+
+    <div class="card">
+      <h3>Usuarios de prueba</h3>
+      <p><strong>Cliente:</strong> cliente@hym.com / 1234</p>
+      <p><strong>Técnico:</strong> tecnico@hym.com / 1234</p>
+      <p><strong>Administrador:</strong> admin@hym.com / 1234</p>
+      <br />
+      <p>También puedes registrar usuarios nuevos desde la sección de registro.</p>
+    </div>
+   </div>
+  </section>
+
+  <!-- CLIENT DASHBOARD -->
+  <section id="clientePanel" class="screen">
+   <h2 class="section-title">Panel del cliente</h2>
+   <div class="dashboard">
+     <aside class="sidebar">
+       <h3>Cliente</h3>
+       <button onclick="renderClientSection('inicio')">Inicio</button>
+       <button onclick="renderClientSection('solicitar')">Solicitar servicio</button>
+       <button onclick="renderClientSection('cotizaciones')">Cotizaciones</button>
+       <button onclick="renderClientSection('mensajes')">Mensajes</button>
+       <button onclick="renderClientSection('pagos')">Pagos</button>
+       <button onclick="renderClientSection('calificaciones')">Calificaciones</button>
+       <button onclick="logout()">Cerrar sesión</button>
+     </aside>
+
+    <div class="dashboard-content" id="clientContent"></div>
+   </div>
+  </section>
+
+  <!-- TECH DASHBOARD -->
+  <section id="tecnicoPanel" class="screen">
+   <h2 class="section-title">Panel del técnico</h2>
+   <div class="dashboard">
+     <aside class="sidebar">
+       <h3>Técnico</h3>
+       <button onclick="renderTechSection('inicio')">Inicio</button>
+       <button onclick="renderTechSection('solicitudes')">Solicitudes disponibles</button>
+       <button onclick="renderTechSection('cotizar')">Enviar cotización</button>
+       <button onclick="renderTechSection('mensajes')">Mensajes</button>
+       <button onclick="renderTechSection('pagos')">Pagos / comisión</button>
+       <button onclick="renderTechSection('reputacion')">Reputación</button>
+     <button onclick="logout()">Cerrar sesión</button>
+    </aside>
+
+    <div class="dashboard-content" id="techContent"></div>
+   </div>
+  </section>
+
+  <!-- ADMIN DASHBOARD -->
+  <section id="adminPanel" class="screen">
+   <h2 class="section-title">Panel del administrador</h2>
+   <div class="dashboard">
+     <aside class="sidebar">
+       <h3>Administrador</h3>
+       <button onclick="renderAdminSection('inicio')">Inicio</button>
+       <button onclick="renderAdminSection('usuarios')">Usuarios</button>
+       <button onclick="renderAdminSection('servicios')">Servicios</button>
+       <button onclick="renderAdminSection('pagos')">Pagos y comisiones</button>
+       <button onclick="renderAdminSection('reportes')">Reportes</button>
+       <button onclick="logout()">Cerrar sesión</button>
+     </aside>
+
+    <div class="dashboard-content" id="adminContent"></div>
+   </div>
+  </section>
+
+
+ <footer>
+  HYM - Prototipo de interfaz gráfica y navegación para conexión entre técnicos de construcción y clientes.
+</footer>
+<script src="js/script.js"></script>
+</body>
+</html>
+

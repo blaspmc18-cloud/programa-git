@@ -1,0 +1,30 @@
+HYM
+│
+├── Inicio
+│ ├── Registrarse
+│ ├── Iniciar sesión
+│ ├── Información del servicio
+│ └── Contacto
+│
+├── Cliente
+│ ├── Panel principal
+│ ├── Solicitar servicio
+│ ├── Cotizaciones
+│ ├── Mensajes
+│ ├── Pagos
+│ └── Calificaciones
+│
+├── Técnico
+│ ├── Panel principal
+│ ├── Solicitudes disponibles
+│ ├── Enviar cotización
+│ ├── Mensajes
+│ ├── Pagos / comisión
+│ └── Reputación
+│
+└── Administrador
+  ├── Dashboard
+  ├── Gestión de usuarios
+  ├── Gestión de servicios
+  ├── Pagos y comisiones
+  └── Reportes
